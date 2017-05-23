@@ -19,6 +19,8 @@ public class Thrustmaster extends Joystick {
 
 	public static JoystickButton trigger, middle, left, right;
 
+	public double deadzone = 0;
+
 	public Thrustmaster(int port) {
 		super(port);
 
@@ -28,16 +30,38 @@ public class Thrustmaster extends Joystick {
 		right = new JoystickButton(this, BUTTON_RIGHT);
 	}
 
-	public double getXAxis() {
+	public Thrustmaster(int port, double deadzone) {
+		this(port);
+		this.deadzone = deadzone;
+	}
+
+	public double getRawX() {
 		return super.getRawAxis(Axes.X);
 	}
 
-	public double getYAxis() {
+	public double x() {
+		double raw = super.getRawAxis(Axes.X);
+
+		if (Math.abs(raw) < deadzone) {
+			return 0;
+		}
+		return raw;
+	}
+
+	public double getRawY() {
 		return -super.getRawAxis(Axes.Y);
 	}
 
-	@Override
-	public double getZ() {
+	public double y() {
+		double raw = super.getRawAxis(Axes.Y);
+
+		if (Math.abs(raw) < deadzone) {
+			return 0;
+		}
+		return raw;
+	}
+
+	public double z() {
 		return super.getRawAxis(Axes.Z);
 	}
 }
