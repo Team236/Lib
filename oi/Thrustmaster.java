@@ -1,4 +1,4 @@
-package org.usfirst.frc.team236.robot.lib;
+package oi;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;

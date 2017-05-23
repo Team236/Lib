@@ -1,5 +1,3 @@
-package org.usfirst.frc.team236.robot.lib;
-
 import java.util.ArrayList;
 
 import edu.wpi.first.wpilibj.DigitalInput;
