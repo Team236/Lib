@@ -12,7 +12,7 @@ import java.util.Vector;
  */
 public class MultiTicker implements Tickable {
 	private Ticker ticker;
-	private Vector loopables = new Vector();
+	private Vector<Tickable> loopables = new Vector<Tickable>();
 
 	public MultiTicker(double period) {
 		ticker = new Ticker(this, period);
