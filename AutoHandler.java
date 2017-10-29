@@ -19,7 +19,8 @@ public class AutoHandler {
 	/**
 	 * Convert a decimal number into a binary
 	 * 
-	 * @param dec A decimal number
+	 * @param dec
+	 *            A decimal number
 	 * @return null
 	 */
 	@SuppressWarnings("unused")
@@ -31,7 +32,8 @@ public class AutoHandler {
 	/**
 	 * Convert binary number to decimal
 	 * 
-	 * @param bin An array of ints representing a binary number
+	 * @param bin
+	 *            An array of ints representing a binary number
 	 * @return the binary number
 	 */
 	private static int toDecimal(int[] bin) {
