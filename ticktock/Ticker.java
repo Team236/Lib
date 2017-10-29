@@ -1,9 +1,7 @@
-package ticktock;
+package lib.ticktock;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
-import ticktock.lib.Tickable;
 
 /**
  * A Looper is an easy way to create a timed task the gets called periodically.

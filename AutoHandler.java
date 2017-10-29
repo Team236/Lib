@@ -1,3 +1,5 @@
+package lib;
+
 import java.util.ArrayList;
 
 import edu.wpi.first.wpilibj.DigitalInput;

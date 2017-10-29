@@ -1,4 +1,4 @@
-package commands;
+package lib.commands;
 
 
 import edu.wpi.first.wpilibj.command.Command;

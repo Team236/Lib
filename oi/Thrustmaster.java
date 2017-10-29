@@ -1,4 +1,4 @@
-package oi;
+package lib.oi;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -17,22 +17,22 @@ public class Thrustmaster extends Joystick {
 		public static final int THROTTLE = 3;
 	}
 
-	public static JoystickButton trigger, middle, left, right;
+	public JoystickButton trigger, middle, left, right;
 
 	public double deadzone = 0;
 
 	public Thrustmaster(int port) {
+		this(port, 0);
+	}
+
+	public Thrustmaster(int port, double _deadzone) {
 		super(port);
+		this.deadzone = _deadzone;
 
 		trigger = new JoystickButton(this, TRIGGER);
 		middle = new JoystickButton(this, BUTTON_MIDDLE);
 		left = new JoystickButton(this, BUTTON_LEFT);
 		right = new JoystickButton(this, BUTTON_RIGHT);
-	}
-
-	public Thrustmaster(int port, double deadzone) {
-		this(port);
-		this.deadzone = deadzone;
 	}
 
 	public double getRawX() {

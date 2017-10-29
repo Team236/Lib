@@ -1,8 +1,6 @@
-package ticktock;
+package lib.ticktock;
 
 import java.util.Vector;
-
-import ticktock.lib.Tickable;
 
 /**
  * MultiLooper.java
