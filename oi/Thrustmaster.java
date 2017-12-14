@@ -40,7 +40,7 @@ public class Thrustmaster extends Joystick {
 	}
 
 	public double x() {
-		double raw = super.getRawAxis(Axes.X);
+		double raw = this.getRawX();
 
 		if (Math.abs(raw) < deadzone) {
 			return 0;
@@ -53,7 +53,7 @@ public class Thrustmaster extends Joystick {
 	}
 
 	public double y() {
-		double raw = super.getRawAxis(Axes.Y);
+		double raw = this.getRawY();
 
 		if (Math.abs(raw) < deadzone) {
 			return 0;
