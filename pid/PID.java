@@ -56,6 +56,10 @@ public class PID implements Tickable {
 	public double getSetpoint() {
 		return setpoint;
 	}
+	
+	public double getError() {
+		return error;
+	}
 
 	@Override
 	public void update() {
