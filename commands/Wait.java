@@ -20,6 +20,6 @@ public class Wait extends Command {
 
 	@Override
 	protected boolean isFinished() {
-		return (i / 50) > waitTime;
+		return (i / 50.0) > waitTime;
 	}
 }
