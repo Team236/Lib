@@ -1,6 +1,6 @@
 package lib.motionProfile;
 
-import ticktock.lib.Tickable;
+import lib.ticktock.Tickable;
 
 /**
  * 
