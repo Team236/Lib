@@ -1,8 +1,9 @@
 package lib.motionProfile;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-
-import lib.motionProfile.Element;
 
 public class TrapProfile {
 	
@@ -10,6 +11,14 @@ public class TrapProfile {
 	
 	private ArrayList<Element> profile;
 	
+	/**
+	 * Generate a trapezoidal motion profile
+	 * 
+	 * @param _dist The total distance to travel
+	 * @param _max_vel The cruising velocity
+	 * @param _max_accel The maximum acceleration
+	 * @param _dt The delta-t between each element of the profile
+	 */
 	public TrapProfile(double _dist, double _max_vel, double _max_accel, double _dt) {
 		max_vel = _max_vel;
 		max_accel = _max_accel;
@@ -25,42 +34,49 @@ public class TrapProfile {
 			
 			e.acceleration = max_accel;
 			e.speed = v;
-			e.position = getLast().position + (velocity * dt);
+			e.position = getLast().position + (getLast().speed * dt);
 
 			profile.add(e);
 		}
 		
 		// Cruise to halfway
-		for(double p = getLast().position; p < (dist / 2); p += max_vel) {
+		for(double p = getLast().position; p < (dist / 2); p += (max_vel * dt)) {
 			Element e = new Element();
 			
 			e.acceleration = 0;
 			e.speed = max_vel;
-			e.position = getLast().position + max_vel * dt;
+			e.position = p;
 			
 			profile.add(e);
 		}
 		
 		// Mirror first half of profile
-		for (int j = profile.size; j >= 0; j++) {
-			profile.add(getElement(j));
+		for (int j = length()-1; j >= 0; j--) {
+			Element f = get(j);
+			Element e = new Element();
+			e.position = dist - f.position;
+			e.speed = f.speed;
+			e.acceleration = -f.acceleration;
+
+			profile.add(e);
 		}
+		System.out.println("Profile generated");
 	}
 	
-	public Element getElement(int n) {
+	public Element get(int n) {
 		return profile.get(n);
 	}
 
 	public Element getLast() {
-		return getElement(profile.size()-1);
+		return get(this.length()-1);
 	}
 
 	private void add(Element e) {
-		list.add(e);
+		profile.add(e);
 	}
 
 	public int length() {
-		return list.size();
+		return profile.size();
 	}
 
 	/**

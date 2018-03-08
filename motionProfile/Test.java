@@ -1,9 +1,14 @@
+package lib.motionProfile;
 
 public class Test {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		double maxSpeed = 100;
+		double accel = 200;
+		double dist = 500;
+		
+		TrapProfile p = new TrapProfile(dist, maxSpeed, accel, 1/100.0);
+		
+		p.store("test");
 	}
-
 }
