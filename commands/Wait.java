@@ -14,6 +14,11 @@ public class Wait extends Command {
 	}
 
 	@Override
+	protected void initialize() {
+		i = 0;
+	}
+
+	@Override
 	protected void execute() {
 		i++;
 	}
@@ -21,5 +26,9 @@ public class Wait extends Command {
 	@Override
 	protected boolean isFinished() {
 		return (i / 50.0) > waitTime;
+	}
+
+	@Override
+	protected void end() {
 	}
 }
