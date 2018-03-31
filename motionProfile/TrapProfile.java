@@ -8,8 +8,13 @@ import java.util.ArrayList;
 public class TrapProfile {
 	
 	private double dist, max_vel, max_accel, dt;
+	public double margin;
 	
 	private ArrayList<Element> profile;
+	
+	public TrapProfile(ProfileParameters _params) {
+		this(_params.distance, _params.maxVelocity, _params.maxAccel, 1/50.0, _params.margin);
+	}
 	
 	/**
 	 * Generate a trapezoidal motion profile
@@ -19,11 +24,12 @@ public class TrapProfile {
 	 * @param _max_accel The maximum acceleration
 	 * @param _dt The delta-t between each element of the profile
 	 */
-	public TrapProfile(double _dist, double _max_vel, double _max_accel, double _dt) {
+	public TrapProfile(double _dist, double _max_vel, double _max_accel, double _dt, double _margin) {
 		max_vel = _max_vel;
 		max_accel = _max_accel;
 		dist = _dist;
 		dt = _dt;
+		margin = _margin;
 		
 		profile = new ArrayList<Element>();
 		profile.add(new Element(0,0,0,0));

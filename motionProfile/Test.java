@@ -3,11 +3,9 @@ package lib.motionProfile;
 public class Test {
 
 	public static void main(String[] args) {
-		double maxSpeed = 100;
-		double accel = 200;
-		double dist = 500;
+		ProfileParameters params = new ProfileParameters(256, 100, 100, 0, 3);
 		
-		TrapProfile p = new TrapProfile(dist, maxSpeed, accel, 1/100.0);
+		TrapProfile p = new TrapProfile(params);
 		
 		p.store("test");
 	}
