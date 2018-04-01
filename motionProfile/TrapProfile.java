@@ -13,7 +13,7 @@ public class TrapProfile {
 	private ArrayList<Element> profile;
 	
 	public TrapProfile(ProfileParameters _params) {
-		this(_params.distance, _params.maxVelocity, _params.maxAccel, 1/50.0, _params.margin);
+		this(_params.distance, _params.maxVelocity, _params.maxAccel, _params.dt, _params.margin);
 	}
 	
 	/**

@@ -16,19 +16,25 @@ package lib.motionProfile;
  *            The maximum allowable maxJerk (ft/s/s/s)
  */
 public class ProfileParameters {
-	public double distance, maxVelocity, maxAccel, maxJerk, margin;
+	public double distance, maxVelocity, maxAccel, maxJerk, margin, dt;
 
 	public static final double DEFAULT_MARGIN = 1;
+	public static final double DEFAULT_PERIOD = 1/50.0;
 
-	public ProfileParameters(double d, double v, double a, double j, double _margin) {
+	public ProfileParameters(double d, double v, double a, double j, double _margin, double _dt) {
 		distance = d;
 		maxVelocity = v;
 		maxAccel = a;
 		maxJerk = j;
 		margin = _margin;
+		dt = _dt;
 	}
 
 	public ProfileParameters(double d, double v, double a, double j) {
-		this(d, v, a, j, DEFAULT_MARGIN);
+		this(d, v, a, j, DEFAULT_MARGIN, DEFAULT_PERIOD);
+	}
+
+	public ProfileParameters(double d, double v, double a, double j, double _margin) {
+		this(d, v, a, j, _margin, DEFAULT_PERIOD);
 	}
 }
