@@ -8,9 +8,15 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Wait extends Command {
 	double waitTime;
 	int i = 0;
+	double dt = (1 / 50.0);
 
 	public Wait(double seconds) {
 		this.waitTime = seconds;
+	}
+	
+	public Wait(double seconds, double _dt) {
+		this(seconds);
+		this.dt = _dt;
 	}
 
 	@Override
