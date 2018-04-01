@@ -108,10 +108,12 @@ public class TrapProfile {
 		String data = "";
 		String path = filename + ".csv";
 
-		data += "Position, Velocity, Acceleration, Jerk";
+		data += "Time, Position, Velocity, Acceleration, Jerk";
 		data += "\n";
 
 		for (int i = 0; i < length(); i++) {
+			data += (i * dt);
+			data += ",";
 			data += get(i).toString(); // Appends P, V, A, J on one line
 			data += "\n"; // Creates a new line
 		}
