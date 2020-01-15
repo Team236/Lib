@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 public class Thrustmaster extends Joystick {
-//test lib change
+
 	public static final int TRIGGER = 1;
 	public static final int BUTTON_MIDDLE = 2;
 	public static final int BUTTON_LEFT = 3;
