@@ -1,6 +1,6 @@
 package lib.oi.triggers;
 
-import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj2.command.button.Button;
 
 public class TwoButton extends Button {
 
