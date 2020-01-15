@@ -1,12 +1,13 @@
 package lib.commands;
 
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import edu.wpi.first.wpilibj.command.Command;
+// import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Test extends Command {
+public class Test extends CommandBase {
 	private String name;
 
 	public Test(String _name) {
@@ -14,27 +15,28 @@ public class Test extends Command {
 	}
 
 	@Override
-	protected void initialize() {
+	public void initialize() {
 		System.out.println("Test (init): " + name);
 	}
 
 	@Override
-	protected void execute() {
+	public void execute() {
 		System.out.println("Test (exec): " + name);
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 
 	@Override
-	protected void end() {
-		System.out.println("Test (end): " + name);
-	}
+	public void end(boolean interrupted) {
+		if (interrupted) {
+			System.out.println("Test (interrupt): " + name);
 
-	@Override
-	protected void interrupted() {
-		System.out.println("Test (interrupt): " + name);
+		} else {
+			System.out.println("Test (end): " + name);
+
+		}
 	}
 }

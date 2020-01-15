@@ -1,11 +1,14 @@
 package lib.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+
+// import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Wait extends Command {
+public class Wait extends CommandBase {
 	double waitTime;
 	int i = 0;
 	double dt = (1 / 50.0);
@@ -20,21 +23,21 @@ public class Wait extends Command {
 	}
 
 	@Override
-	protected void initialize() {
+	public void initialize() {
 		i = 0;
 	}
 
 	@Override
-	protected void execute() {
+	public void execute() {
 		i++;
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return (i / 50.0) > waitTime;
 	}
 
 	@Override
-	protected void end() {
+	public void end(boolean interrupted) {
 	}
 }
