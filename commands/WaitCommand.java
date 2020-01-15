@@ -21,4 +21,15 @@ public class WaitCommand extends SequentialCommandGroup {
 			command);
 	}
 
+	/**
+	 * Start a command on a delay that times out
+	 * @param delay The delay before command starts, in seconds
+	 * @param command The command to start
+	 * @param timeout The amount of time the command should run for, in seconds
+	 */
+	public WaitCommand(double delay, Command command, double timeout) {
+		addCommands(new Wait(delay),
+			new TimeoutCommand(command, timeout));
+	}
+
 }
